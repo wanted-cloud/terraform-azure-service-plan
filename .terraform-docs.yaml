@@ -1,0 +1,63 @@
+formatter: "markdown document"
+
+header-from: main.tf
+
+content: |-
+  {{ .Header }}
+
+  ## Table of contents
+
+  - [Requirements](#requirements)
+  - [Providers](#providers)
+  - [Variables](#inputs)
+  - [Outputs](#outputs)
+  - [Resources](#resources)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  {{ .Resources }}
+
+  ## Usage
+  
+  > For more detailed examples navigate to `examples` folder of this repository.
+
+  Module was also published via Terraform Registry and can be used as a module from the registry.
+
+  ```hcl
+  module "example" {
+    source  = "wanted-cloud/..."
+    version = "x.y.z"
+  }
+  ```
+
+  ### Basic usage example
+
+  The minimal usage for the module is as follows:
+
+  ```hcl
+  {{ include "./examples/base/main.tf" }}
+  ```
+  ## Contributing
+
+  _Contributions are welcomed and must follow [Code of Conduct](https://github.com/wanted-cloud/.github?tab=coc-ov-file) and common [Contributions guidelines](https://github.com/wanted-cloud/.github/blob/main/docs/CONTRIBUTING.md)._
+
+  > If you'd like to report security issue please follow [security guidelines](https://github.com/wanted-cloud/.github?tab=security-ov-file).
+  ---
+  <sup><sub>_2025 &copy; All rights reserved - WANTED.solutions s.r.o._</sub></sup>
+
+output:
+  file: "README.md"
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+    
