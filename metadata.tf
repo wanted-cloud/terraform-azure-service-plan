@@ -24,12 +24,16 @@ variable "metadata" {
   description = "Metadata definitions for the module, this is optional construct allowing override of the module defaults defintions of validation expressions, error messages, resource timeouts and default tags."
   default     = {}
   type = object({
-    resource_timeouts = optional(object({
-      create = optional(string, "30m")
-      read   = optional(string, "5m")
-      update = optional(string, "30m")
-      delete = optional(string, "30m")
-    }), {})
+    resource_timeouts = optional(
+      map(
+        object({
+          create = optional(string, "30m")
+          read   = optional(string, "5m")
+          update = optional(string, "30m")
+          delete = optional(string, "30m")
+        })
+      ), {}
+    )
     tags                     = optional(map(string), {})
     validator_error_messages = optional(map(string), {})
     validator_expressions    = optional(map(string), {})
