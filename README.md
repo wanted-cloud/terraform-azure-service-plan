@@ -155,7 +155,11 @@ Default: `false`
 
 ## Outputs
 
-No outputs.
+The following outputs are exported:
+
+### <a name="output_service_plan"></a> [service\_plan](#output\_service\_plan)
+
+Description: The Service Plan resource.
 
 ## Resources
 
